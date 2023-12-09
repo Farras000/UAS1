@@ -2,24 +2,26 @@ import { Routes, Route } from "react-router-dom"
 
 import { Home } from "./Page/Home";
 import { Navb } from "./Component/Navb";
-import Detail from "./Page/detail";
+import Detail from "./Page/Detail";
 import { AllPage } from "./Page/AllPage";
 
 import './App.css';
-import GenrePage from "./Page/GenrePage";
-import { Tespage } from "./Page/Tespage";
+import { GenrePage } from "./Page/GenrePage";
+
+
+
 
 function App(){
   return ( <div>
     <Navb/>
+    
     <Routes>
       <Route path="/" Component={Home}/>
-      <Route path="/" Component={Tespage}/>
-      <Route path="/Detail" Component={Detail}/>
-      <Route path="/AllPage" Component={AllPage}/>
-      <Route path="/GenrePage" Component={GenrePage}/>
+      <Route path="/detail/:endpoint" Component={Detail}/>
+      <Route path="/all" Component={AllPage}   />
+      <Route path="/genre" Component={GenrePage} />
+
  
-      
     </Routes>
   </div>
 );

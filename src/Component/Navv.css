@@ -1,11 +1,22 @@
-.Navv{
-    background-color: #848484;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
+nav {
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+  }
+  
+  .neubar {
+    background: #473D74;
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.4)
+  }
+  
+  .nav-item .hover {
+    border-radius: 4px;
+    background: linear-gradient(1deg, #755693, #A56FB0);
+  
+  }
+
+ /* styles.css atau dalam file .scss atau .sass */
+.custom-nav-link {
+    color: red; /* Ganti dengan warna yang diinginkan */
+  }
+  

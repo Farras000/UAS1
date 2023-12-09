@@ -1,30 +1,38 @@
 import { useEffect, useState } from 'react';
+import loadingGif from '../loading-snake-io.gif'
+import './card.css'
 
-const GenrePage = () => {
-  const [genreData, setGenreData] = useState([]);
+export const GenrePage = () => {
+  const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchGenreData = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/genre');
-        const data = await response.json();
-        setGenreData(data);
-      } catch (error) {
-       <h1>kontolodon</h1>;
-      }
-    };
-
-    fetchGenreData();
+    fetch('http://localhost:8000/genre')
+      .then(response => response.json())
+      .then(data => {
+        setGenres(data.genres || []);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching genres:', error);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div>
-        <p>ceritanya ini genre page</p>
-            {genreData.map((genre) => (
-                <div key={genre.id}>{genre.name}</div>
-            ))}
+      <h1>Welcome to My Comic World!</h1>
+      {loading ? (
+        <img src={loadingGif} className='loading-gif' alt="Loading..." /> 
+      ) : (
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', marginLeft: '80px', marginRight: '80px', marginTop: '40px' }}>
+          {genres.map((genre, index) => (
+            <a key={index} href={`${genre.endpoint}`} style={{ color: 'white',  width: '19%', marginBottom: '50px', textDecoration: 'none' }}>
+              <p>{genre.name}</p>
+            </a>
+          ))}
         </div>
+      )}
+    </div>
   );
 };
-
-export default GenrePage;
