@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import loadingGif from '../loading-snake-io.gif'
-import './card.css'
+import './load.css';
 
 export const GenrePage = () => {
   const [genres, setGenres] = useState([]);
@@ -21,13 +20,14 @@ export const GenrePage = () => {
 
   return (
     <div>
-      <h1>Welcome to My Comic World!</h1>
       {loading ? (
-        <img src={loadingGif} className='loading-gif' alt="Loading..." /> 
+        <div className="loading-container">
+          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
       ) : (
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', marginLeft: '80px', marginRight: '80px', marginTop: '40px' }}>
           {genres.map((genre, index) => (
-            <a key={index} href={`${genre.endpoint}`} style={{ color: 'white',  width: '19%', marginBottom: '50px', textDecoration: 'none' }}>
+            <a key={index} href={`genre/${genre.endpoint}`} style={{ color: 'black', width: '19%', marginBottom: '50px', textDecoration: 'none' }}>
               <p>{genre.name}</p>
             </a>
           ))}

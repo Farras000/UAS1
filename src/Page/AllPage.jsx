@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Card, Button } from 'react-bootstrap';
-import './card.css';
-import loadingGif from '../loading-snake-io.gif';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './load.css';
+
 
 export const AllPage = () => {
   const [latestComics, setLatestComics] = useState([]);
@@ -23,15 +24,17 @@ export const AllPage = () => {
 
   return (
     <div>
-      {loading ? (
-        <img src={loadingGif} alt="Loading..." style={{ width: '50px', height: '50px' }} />
-      ) : (
-        <div>
-          <h2 style={{ margin: '10px' }}>All Comic</h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-            {latestComics.slice(1).map((comic, index) => (
+    {loading ? (
+      <div className="loading-container">
+        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
+    ) : (
+      <div>
+        <h2 style={{ margin: '10px' }}>All Comic</h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          {latestComics.slice(1).map((comic, index) => (
+            <Link key={index} to={`/detail/${comic.endpoint}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card
-                key={index}
                 style={{ width: '270px', marginBottom: '20px', marginLeft: '20px', marginRight: '20px', position: 'relative' }}
               >
                 <div
@@ -45,21 +48,22 @@ export const AllPage = () => {
                     variant="top"
                     src={comic.thumbnail}
                     alt={comic.title}
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ position: 'absolute', aspectRatio: 3 / 4, objectFit: '' }}
                   />
                 </div>
                 <Card.Body>
                   <Card.Title>{comic.title}</Card.Title>
-                  <Card.Text>{comic.chapter}</Card.Text>
-                  <Button className='tombol' href={`/detail/${comic.endpoint}`} variant="primary">
-                    Read More
-                  </Button>
+                  <Card.Text>{comic.latest_chapter}</Card.Text>
+
+           
                 </Card.Body>
               </Card>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
+  
   );
 };

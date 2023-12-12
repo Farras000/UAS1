@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Ubuntu:wght@500&display=swap');
 nav {
-    font-family: 'Bebas Neue', sans-serif;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    
   }
   
   .neubar {
-    background: #473D74;
+    background: #b9b2d6;
     box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.4)
   }
   

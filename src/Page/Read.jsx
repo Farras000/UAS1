@@ -9,7 +9,7 @@ const Detail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/detail/${endpoint}`)
+    fetch(`http://localhost:8000/read   /${endpoint}`)
       .then(response => response.json())
       .then(data => {
         const manhwaData = data.manhwa && data.manhwa[0]; 
@@ -40,7 +40,7 @@ const Detail = () => {
                 src={comicDetail.thumbnail}
                 alt={comicDetail.title}
                 className="img-fluid"
-                style={{ aspectRatio: '3/4', margin: '25px  ', borderRadius: '4px' }}
+                style={{ aspectRatio: '3/4', margin: '25px  ' }}
               />
             </Col>
             <Col md={8}>
@@ -63,13 +63,13 @@ const Detail = () => {
     </Row>
     <Row style={{ alignContent: 'center' }} className="mt-4">
   <Col md={12}>
-    <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'black'}}>Chapters</h2>
+    <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'whitesmoke'}}>Chapters</h2>
     <Row>
       {comicDetail.chapters &&
         comicDetail.chapters.map((chapter, index) => (
           <Col md={4} key={index}>
             <Card style={{ marginBottom: '25px' }}>
-            <Card.Body style={{ border: ' ', borderRadius: '5px' }}>
+              <Card.Body>
                 <Card.Title>{chapter.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{chapter.date}</Card.Subtitle>
                 <Button

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import './card.css'
+import './load.css'
+
 
 export const Home = () => {
   const [latestComics, setLatestComics] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:8000/popular')
@@ -11,25 +13,31 @@ export const Home = () => {
       .then(data => {
         const comics = data.manhwas || [];
         setLatestComics(comics);
+        setLoading(false); 
       })
       .catch(error => {
         console.error('Error fetching latest comics:', error);
+        setLoading(true); 
       });
   }, []);
 
   return (
-    <div  >
+    <div>
+    {loading ? (
+      <div className="loading-container">
+      <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>    ) : (
       <div>
         <h2 style={{ margin: '10px' }}>All Comic</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
           {latestComics.slice(1).map((comic, index) => (
             <Card
               key={index}
-              style={{ width: '200px', marginBottom: '20px', marginLeft: '20px', marginRight: '20px', position: 'relative' }}
+              style={{ width: '270px', marginBottom: '20px', marginLeft: '20px', marginRight: '20px', position: 'relative' }}
             >
               <div
                 style={{
-                  paddingBottom: '100%', // Atur tinggi relatif terhadap lebar (misalnya, 3:2 aspek rasio)
+                  paddingBottom: '150%',
                   position: 'relative',
                   overflow: 'hidden',
                 }}
@@ -43,7 +51,7 @@ export const Home = () => {
               </div>
               <Card.Body>
                 <Card.Title>{comic.title}</Card.Title>
-                <Card.Text>{comic.chapter}</Card.Text>
+                <Card.Text>{comic.latest_chapter}</Card.Text>
                 <Button className='tombol' href={`/detail/${comic.endpoint}`} variant="primary">
                   Read More
                 </Button>
@@ -52,6 +60,7 @@ export const Home = () => {
           ))}
         </div>
       </div>
-    </div>
+    )}
+  </div>
   );
 };
