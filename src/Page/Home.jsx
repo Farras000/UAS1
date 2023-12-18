@@ -29,7 +29,7 @@ export const Home = () => {
       <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div>    ) : (
      <div>
-     <h2 style={{ margin: '10px', textAlign: 'center' }}>Our Popular Comic</h2>
+     <h2 style={{ margin: '10px', textAlign: 'center', color:'#F1F1E6' }}>Our Popular Comic</h2>
      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
        {latestComics.slice(1).map((comic, index) => (
          <Link key={index} to={`/detail/${comic.endpoint}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -61,7 +61,7 @@ export const Home = () => {
        ))}
      </div>
      <div style={{ textAlign: 'center', margin: '20px' }}>
-            <Link to="/all" style={{ textDecoration: 'none' }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
               <Button variant="primary">View All</Button>
             </Link>
           </div>

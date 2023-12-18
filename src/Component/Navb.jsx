@@ -21,8 +21,8 @@ export const Navb = () => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link style={{ color: '#FFF7D6'}} className="mx-2" href="/all"  >
-                All
+              <Nav.Link style={{ color: '#FFF7D6'}} className="mx-2" href="/popular"  >
+                Popular
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -31,7 +31,7 @@ export const Navb = () => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link style={{ color: '#FFF7D6'}}  className="mx-2 active" href="/uss">
+              <Nav.Link style={{ color: '#FFF7D6'}}  className="mx-2 active" href="/us">
                 About Us
               </Nav.Link>
             </Nav.Item>

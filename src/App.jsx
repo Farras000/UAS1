@@ -22,14 +22,14 @@ function App(){
  
     
     <Routes>
-      <Route path="/" Component={Home}/>
+      <Route path="/" Component={AllPage}/>
       <Route path="/detail/:endpoint" Component={Detail}/>
-      <Route path="/all" Component={AllPage}   />
+      <Route path="/popular" Component={Home}   />
       <Route path="/genre" Component={GenrePage} />
       <Route path="/read/:endpoint" Component={Read} />
       <Route path="/genre/:endpoint" Component={Genre} />
 
-      <Route  path="/uss" Component={Abus} />     
+      <Route  path="/us" Component={Abus} />     
  
 
  
