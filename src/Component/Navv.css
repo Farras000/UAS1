@@ -4,11 +4,12 @@ nav {
 font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 18px;
+    color: #FFF7D6  ;
     
   }
   
   .neubar {
-    background: #b9b2d6;
+    background: #00393D;
     box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.4)
   }
   

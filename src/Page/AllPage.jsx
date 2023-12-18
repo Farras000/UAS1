@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './load.css';
 
 
+
 export const AllPage = () => {
   const [latestComics, setLatestComics] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,10 @@ export const AllPage = () => {
       });
   }, []);
 
+
+
+
+
   return (
     <div>
     {loading ? (
@@ -29,17 +34,17 @@ export const AllPage = () => {
         <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
       </div>
     ) : (
-      <div>
-        <h2 style={{ margin: '10px' }}>All Comic</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+      <div >
+        <h2 style={{ margin: '10px', textAlign: 'center' }}>All Comic</h2>
+        <div  style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
           {latestComics.slice(1).map((comic, index) => (
             <Link key={index} to={`/detail/${comic.endpoint}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Card
-                style={{ width: '270px', marginBottom: '20px', marginLeft: '20px', marginRight: '20px', position: 'relative' }}
+              <Card 
+                style={{ width: '270px', marginBottom: '20px', height: '450px', marginLeft: '20px', marginRight: '20px', position: 'relative' }}
               >
                 <div
                   style={{
-                    paddingBottom: '150%',
+                    paddingBottom: '135%',
                     position: 'relative',
                     overflow: 'hidden',
                   }}
@@ -52,7 +57,7 @@ export const AllPage = () => {
                   />
                 </div>
                 <Card.Body>
-                  <Card.Title>{comic.title}</Card.Title>
+                  <Card.Title style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}} >{comic.title}</Card.Title>
                   <Card.Text>{comic.latest_chapter}</Card.Text>
 
            

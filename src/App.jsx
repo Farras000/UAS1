@@ -1,13 +1,16 @@
 import { Routes, Route } from "react-router-dom"
 
 import { Home } from "./Page/Home";
-import { Navb } from "./Component/Navb";
-import Detail from "./Page/detail";
+import { Navb } from "./Component/Navb.jsx";
+import Detail from "./Page/Detail";
 import { AllPage } from "./Page/AllPage";
 import { GenrePage } from "./Page/GenrePage";
 import Read from "./Page/Read";
 import Genre from "./Page/Genre";
-import { AboutUs } from "./Page/AboutUs";
+
+import { Abus } from "./Page/Abus";
+import { Foot } from "./Component/Foot.jsx";
+
 
 
 
@@ -25,12 +28,13 @@ function App(){
       <Route path="/genre" Component={GenrePage} />
       <Route path="/read/:endpoint" Component={Read} />
       <Route path="/genre/:endpoint" Component={Genre} />
-      <Route path="/us" Component={AboutUs} />
-      
+
+      <Route  path="/uss" Component={Abus} />     
  
 
  
     </Routes>
+<Foot/>
   </div>
 );
 }

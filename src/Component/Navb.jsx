@@ -8,30 +8,30 @@ export const Navb = () => {
    
       <Navbar expand="md" className="neubar">
       <Container>
-        <Navbar.Brand href="#" style={{ color: '#484554' }}>
-          <h2>Comic </h2>
+        <Navbar.Brand href="/" style={{ color: '#FFF7D6' }}>
+          <h2>Rawread </h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNavDropdown" />
         <Navbar.Collapse id="navbarNavDropdown">
-          <Nav className="ml-auto">
+          <Nav className="ml-auto nav-item  ">
          
             <Nav.Item>
-              <Nav.Link style={{ color: '#484554'}}  className="mx-2 custom-nav-link " href="/">
+              <Nav.Link style={{ color: '#FFF7D6'}}  className="mx-2 custom-nav-link " href="/">
                 Main
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link style={{ color: '#484554'}} className="mx-2" href="/all"  >
+              <Nav.Link style={{ color: '#FFF7D6'}} className="mx-2" href="/all"  >
                 All
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link style={{ color: '#484554'}}  className="mx-2" href="/genre">
+              <Nav.Link style={{ color: '#FFF7D6'}}  className="mx-2 " href="/genre">
                 Genre
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link style={{ color: '#484554'}}  className="mx-2 active" href="/aboutus">
+              <Nav.Link style={{ color: '#FFF7D6'}}  className="mx-2 active" href="/uss">
                 About Us
               </Nav.Link>
             </Nav.Item>
