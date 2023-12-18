@@ -1,8 +1,8 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useEffect } from 'react';
 import './us.css'
-import elisa from './IMG/elisa.jpeg';
-import Ase from './IMG/ase.jpeg';
+import elisa from './IMG/Elisa.jpeg';
+import Ase from './IMG/Ase.jpeg';
 import Marsal from './IMG/Marsal.jpeg';
 import farras from './IMG/farras.jpeg';
 import jack from './IMG/jakew.jpeg';
