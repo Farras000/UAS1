@@ -23,7 +23,7 @@ const Genre = () => {
 
   return (
     <div>
-        <h1>Tes</h1>
+        <h1>kontol</h1>
       {loading ? (
           <div className="loading-container">
           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>

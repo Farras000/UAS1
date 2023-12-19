@@ -31,23 +31,17 @@ const Detail = () => {
   
     <Row>
       <Col >
-        <Card style={{backgroundColor:'#374366', color:'#F1F1E6' }} >
+        <Card>
           <Row>
             <Col md={4}>
-            <Card.Img
-  variant="top"
-  src={comicDetail.thumbnail}
-  alt={comicDetail.title}
-  className="img-fluid"
-  style={{
-    maxWidth: '85%', 
-    height: 'auto',   
-    aspectRatio: '3/4',
-    margin: '25px',
-    borderRadius: '4px'
-  }}
-/>
+              <Card.Img
 
+                variant="top"
+                src={comicDetail.thumbnail}
+                alt={comicDetail.title}
+                className="img-fluid"
+                style={{ aspectRatio: '3/4', margin: '25px  ', borderRadius: '4px' }}
+              />
             </Col>
             <Col md={8}>
               <Card.Body className='crd' > 
@@ -68,31 +62,28 @@ const Detail = () => {
      
     </Row>
     <Row style={{ alignContent: 'center' }} className="mt-4">
-  <Col md={12} >
-    <h2 style={{ textAlign: 'center', marginBottom: '30px', color: '#F1F1E6'}}>Chapters</h2>
+  <Col md={12}>
+    <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'black'}}>Chapters</h2>
     <Row>
-  {comicDetail.chapters &&
-    comicDetail.chapters.map((chapter, index) => (
-      <Col
-        key={index}
-        xs={6} sm={6} md={4} lg={3} xl={2.5} 
-      >
-        <Card style={{ marginBottom: '25px', backgroundColor: '#374366', color: '#F1F1E6' }}>
-          <Card.Body style={{ border: ' ', borderRadius: '2px' }}>
-            <Card.Title>{chapter.title}</Card.Title>
-            <Card.Subtitle className="mb-2 ">{chapter.date}</Card.Subtitle>
-            <Button
-              href={`/read/${chapter.endpoint}`}
-              style={{ margin: '10px 0', backgroundColor: '#3E8A86' }}
-            >
-              Read Chapter
-            </Button>
-          </Card.Body>
-        </Card>
-      </Col>
-    ))}
-</Row>
-
+      {comicDetail.chapters &&
+        comicDetail.chapters.map((chapter, index) => (
+          <Col md={4} key={index}>
+            <Card style={{ marginBottom: '25px' }}>
+            <Card.Body style={{ border: ' ', borderRadius: '5px' }}>
+                <Card.Title>{chapter.name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{chapter.date}</Card.Subtitle>
+                <Button
+                  href={`/read/${chapter.endpoint}`}
+                  style={{ margin: '10px 0' }}
+                  variant="primary"
+                >
+                  Read Chapter
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+    </Row>
   </Col>
 </Row>
 

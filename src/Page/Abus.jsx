@@ -1,13 +1,10 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { useEffect } from 'react';
-import './us.css'
-import elisa from './IMG/Elisa.jpeg';
-import Ase from './IMG/Ase.jpeg';
+import './us.css';
+import elisa from './IMG/elisa.jpeg';
+import Ase from './IMG/ase.jpeg';
 import Marsal from './IMG/Marsal.jpeg';
 import farras from './IMG/farras.jpeg';
 import jack from './IMG/jakew.jpeg';
-import instagramLogo from './IMG/IG.png';
-
 
 const isi = [
   {
@@ -30,7 +27,6 @@ const profiles = [
     position: 'Front-end, UI/UX Designer, Project Manager, Content Writer, PPT',
     bio: '',
     nim: '80775',
-    instagram: 'farrasibrhm', 
     bioimg: farras,
   },
   {
@@ -38,7 +34,6 @@ const profiles = [
     position: 'Server Administrator, Membantu Farras, Hosting',
     bio: '',
     nim: '68056',
-    instagram: 'marshalof_', 
     bioimg: Marsal,
   },
   {
@@ -46,15 +41,13 @@ const profiles = [
     position: 'PPT, Technical Support Engineer',
     bio: '',
     nim: '81668',
-    instagram: '_pras24', 
     bioimg: Ase,
   },
   {
-    name: 'Elisa Putra Sitompul',
+    name: 'Elisa Putra S',
     position: 'PPT, Technical Support Engineer',
     bio: '',
     nim: '77185',
-    instagram: 'putraaaaa.0', 
     bioimg: elisa,
   },
   {
@@ -62,52 +55,19 @@ const profiles = [
     position: 'UI/UX Designer',
     bio: '',
     nim: '80926',
-    instagram: 'aditnugraa', 
     bioimg: jack,
   },
 ];
 
 export const Abus = () => {
-
-    useEffect(() => {
-        const handleScroll = () => {
-          const elements = document.querySelectorAll('.animate-on-scroll');
-          elements.forEach((element) => {
-            const rect = element.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-            const isInView = rect.top <= windowHeight * 0.9 && rect.bottom >= 1; 
-    
-            if (isInView) {
-              element.classList.add('visible');
-            } else {
-              element.classList.remove('visible');
-            }
-          });
-        };
-    
-
-        window.addEventListener('scroll', handleScroll);
-    
-  
-        handleScroll();
- 
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
-    
   return (
-
-    
     <Container className="container-fluid p-0" style={{ maxWidth: '1200px' }}>
-   
-      <h2 style={{ padding: '30px', textAlign: 'center', color:'#F1F1E6' }}>About Us </h2>
+      <h2 style={{ padding: '30px', textAlign: 'center' }}>About Us </h2>
       {isi.map((isitext, index) => (
         <div
           className="about-us-container"
           key={index}
-         
-          style={{ backgroundColor: '#374366', color: '#F1F1E6', width: 'auto', height: 'auto', borderRadius: '5px' }}
+          style={{ backgroundColor: 'grey', color: 'white', width: 'auto', height: 'auto', borderRadius: '5px' }}
         >
           <div style={{ padding: '50px' }}>
             <p>{isitext.isiaja} </p>
@@ -122,40 +82,28 @@ export const Abus = () => {
       <br />
       <br />
       <br />
-      <h2 style={{color:'#F1F1E6'}} className="text-center mb-4"  >Meet Our Team</h2> 
-      <Row className="justify-content-center">
-  {profiles.map((profile, index) => (
-    <Col key={index} xs={5} sm={5} md={4} lg={2} className="mb-4 animate-on-scroll">
-      <Card className="animated-card" style={{ height: '100%', width: '9  0%', padding: '0.5rem', fontSize: '1.2rem', position: 'relative', marginBottom: '20px',backgroundColor: '#374366', color:'#F1F1E6'  }}>
-        <Card.Img variant="top" src={profile.bioimg} alt={profile.name} style={{ aspectRatio: '1/1', objectFit: 'cover' }} />
-        <Card.Body  className="text-center" >
-          <div className="card-title mb-3">
-            <Card.Title  >{profile.name}</Card.Title>
-          </div>
-          <div className="card-nim mb-3">
-            <Card.Text >{profile.nim}</Card.Text>
-          </div>
-          <div className="card-position mb-2">
-            <Card.Subtitle style={{fontSize:'15px'}}>{profile.position}</Card.Subtitle>
-          </div>
-          <Card.Text>{profile.bio}</Card.Text>
-
-        
-          {profile.instagram && (
-            <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', marginBottom: '10px' }}>
-              <a href={`https://www.instagram.com/${profile.instagram}`} target="_blank" rel="noopener noreferrer">
-                <img src={instagramLogo} alt="Instagram" style={{ width: '30px', height: '30px' }} />
-              </a>
+      <h2 className="text-center mb-4">Meet Our Team</h2> 
+        <Row className="justify-content-center">
+    {profiles.map((profile, index) => (
+        <Col key={index} xs={12} sm={6} md={4} lg={2} className="mb-4">
+        <Card style={{ height: '100%', width: '100%', padding: '0.5rem', fontSize: '1.2rem' }}>
+            <Card.Img variant="top" src={profile.bioimg} alt={profile.name} style={{ aspectRatio: '1/1', objectFit: 'cover' }} />
+            <Card.Body className="text-center">
+            <div className="card-title mb-2">
+                <Card.Title>{profile.name}</Card.Title>
             </div>
-          )}
-        </Card.Body>
-      </Card>
-    </Col>
-  ))}
-</Row>
-
-
-    <br /><br /><br />
+            <div className="card-nim mb-2">
+                <Card.Text>{profile.nim}</Card.Text>
+            </div>
+            <div className="card-position mb-2">
+                <Card.Subtitle className="text-muted">{profile.position}</Card.Subtitle>
+            </div>
+            <Card.Text>{profile.bio}</Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+    ))}
+    </Row>
 
     </Container>
   );
